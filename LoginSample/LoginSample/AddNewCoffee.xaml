@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="LoginSample.AddNewCoffee"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LoginSample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
+            <TextBlock Text="Add New Coffee Item"
+                       FontSize="36"
+                       Margin="4"
+                       TextAlignment="Center" />
+            <TextBox x:Name="CoffeeName"
+                     Margin="4"
+                     Width="250"
+                     PlaceholderText="Coffee Name"
+                     Text="{Binding Coffee.Name, Mode=TwoWay}" />
+            <TextBox x:Name="CoffeeType"
+                     Margin="4"
+                     Width="250"
+                     PlaceholderText="Type"
+                     Text="{Binding Coffee.Type, Mode=TwoWay}"/>
+            <TextBox x:Name="Price"
+                     Margin="4"
+                     Width="250"
+                     PlaceholderText="Price"
+                     Text="{Binding Coffee.Price, Mode=TwoWay}"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="SaveCoffee"
+                        Content="Save"
+                        Background="DodgerBlue"
+                        Foreground="White"
+                        Width="80"
+                        Margin="0,20"
+                        Command="{Binding SaveCoffeeCommand}"
+                        Click="SaveCoffee_Click"
+                        />
+                <Button x:Name="CancelCoffee"
+                        Content="Cancel"
+                        Background="Red"
+                        Foreground="White"
+                        Width="80"
+                        Margin="10,20"
+                        Click="CancelCoffee_Click"
+                        />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

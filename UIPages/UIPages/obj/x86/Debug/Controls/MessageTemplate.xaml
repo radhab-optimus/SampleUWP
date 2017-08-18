@@ -1,0 +1,67 @@
+﻿<UserControl x:ConnectionId='1' x:Class="UIPages.Controls.MessageTemplate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:UIPages.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="using:UIPages.Converters"
+             mc:Ignorable="d"
+             d:DesignHeight="300"
+             d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <converters:CommentBoxProperties x:Key="CommentBoxPropertiesConverter" />
+        <converters:MessageCommentBackground x:Key="MessageCommentBackgroundConverter" />
+
+    </UserControl.Resources>
+
+
+    <StackPanel x:ConnectionId='2'   Width="400"
+                  Height="auto"
+                                                                                                                           
+                                                                                                                                
+                  VerticalAlignment="Top"
+                  
+                  Margin="10"
+                  Orientation="Vertical">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <TextBlock x:ConnectionId='3' x:Name="comment"
+                       TextWrapping="Wrap"
+                       TextAlignment="Justify"
+                       Margin="10"
+                       Width="400"
+                       Height="auto"
+                                           >
+            </TextBlock>
+
+            <Grid VerticalAlignment="Bottom"
+                  Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock x:ConnectionId='4' x:Name="Date"
+                           Grid.Column="0"
+                           VerticalAlignment="Bottom"
+                           HorizontalAlignment="Left"
+                           Margin="10"
+                                                        />
+                <TextBlock x:ConnectionId='5' x:Name="SenderName"
+                           Grid.Column="1"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Bottom"
+                           Margin="10"
+                                                  />
+            </Grid>
+        </Grid>
+    </StackPanel>
+
+
+
+
+</UserControl>
+

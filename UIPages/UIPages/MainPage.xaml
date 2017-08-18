@@ -1,0 +1,197 @@
+﻿<Page xmlns:my="using:UIPages.Controls"  x:Class="UIPages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:UIPages"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:style="using:UIPages.Resources"
+      mc:Ignorable="d">
+    <Page.Resources>
+        <ResourceDictionary Source="Resources/ButtonStyle.xaml" />
+
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Background="#171717">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel  Grid.Column="0" Orientation="Horizontal">
+                <Button Name="HamburgerButton"
+                        FontFamily="Segoe MDL2 Assets"
+                        Content="&#xE700;"
+                        FontSize="28"
+                        Margin="5,10,10,10"
+                        Background="#171717"
+                        Foreground="white"
+                        Click="HamburgerButton_Click" />
+                <TextBlock Margin="5,15,10,0"
+                           FontSize="28"
+                           FontFamily="sans"
+                           Foreground="White"
+                           TextAlignment="Center">
+                Pick Lists
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button  FontFamily="Segoe MDL2 Assets"
+                         Content="&#xE721;"
+                         FontSize="28"
+                         Background="#171717"
+                         Foreground="white"
+                         HorizontalAlignment="Right"
+                         HorizontalContentAlignment="Right"
+                         Padding="5,5,20,5">
+                </Button>
+                <Button  FontFamily="Segoe MDL2 Assets"
+                         Content="&#xE823;"
+                         FontSize="28"
+                         Background="#171717"
+                         Foreground="white"
+                         HorizontalAlignment="Right"
+                         Padding="5,5,20,5">
+                </Button>
+            </StackPanel>
+            
+        </Grid>
+        <StackPanel Background="#2c3e50"
+                    Grid.Row="1"
+                    >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0"
+                        FontSize="20"
+                        Background="#2c3e50"
+                        Foreground="White"
+                        Height="70"
+                        x:Name="UnassignedButton"
+                        HorizontalAlignment ="Stretch"
+                        VerticalAlignment="Stretch">Unassigned</Button>
+                <Button Grid.Column="1"
+                        FontSize="20"
+                        Background="#2c3e50"
+                        Foreground="White"
+                        Height="70"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        x:Name="AssignedButton">Assigned</Button>
+                <Button Grid.Column="2"
+                        FontSize="20"
+                        Background="#2c3e50"
+                        Foreground="White"
+                        Height="70"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        x:Name="StagedButton">Staged</Button>
+                <Button Grid.Column="3"
+                        FontSize="20"
+                        Background="#2c3e50"
+                        Foreground="White"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Height="70"
+                        x:Name="ShippedButton" >Shipped</Button>
+            </Grid>
+        </StackPanel>
+        <Grid  Grid.Row="2"
+               Background="#ecf0f1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+       
+
+            <ComboBox x:Name="comboBoxTimeFilter"
+                      Width="194"
+                      Height="40"
+                      Grid.Column="0"
+                      HorizontalAlignment="Left"
+                      Margin="20,10,10,10">
+                <ComboBoxItem IsSelected="True">Target Date</ComboBoxItem>
+                <ComboBoxItem>ComboBox Item #2</ComboBoxItem>
+                <ComboBoxItem>ComboBox Item #3</ComboBoxItem>
+            </ComboBox>
+
+            <ComboBox x:Name="comboBoxDepartmentFilter"
+                      Width="194"
+                      Height="40"
+                      Grid.Column="1"
+                      HorizontalAlignment="Right"
+                      Margin="10,10,20,10">
+                <ComboBoxItem IsSelected="True">All Departments</ComboBoxItem>
+                <ComboBoxItem>ComboBox Item #2</ComboBoxItem>
+                <ComboBoxItem>ComboBox Item #3</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        <SplitView Name="MySplitView"
+                   Grid.Row="3"
+                   DisplayMode="CompactOverlay"
+                   OpenPaneLength="250"
+                   CompactPaneLength="0"
+                   HorizontalAlignment="Left"
+                   >
+            <SplitView.Pane >
+                <ListBox SelectionMode="Single"
+                         Name="IconsListBox"
+                         >
+                    <ListBoxItem Name="PickListBoxItem">
+                            <TextBlock Text="Pick Lists"
+                                       FontSize="24"
+                                       Margin="20,0,0,0" />
+                    </ListBoxItem>
+
+                    <ListBoxItem Name="StagingListBoxItem">
+                            <TextBlock Text="Staging Map"
+                                       FontSize="24"
+                                       Margin="20,0,0,0"
+                                        />
+                    </ListBoxItem>
+                    <ListBoxItem Name="BarCodeListBoxItem">
+                        <TextBlock Text="BarCode / RFID"
+                                   FontSize="24"
+                                   Margin="20,0,0,0" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="UserProfileListBoxItem">
+                        <TextBlock Text="User Profile"
+                                   FontSize="24"
+                                   Margin="20,0,0,0" />
+                    </ListBoxItem>
+
+                </ListBox>
+            </SplitView.Pane>
+           
+        </SplitView>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+        </Grid>
+        <StackPanel Grid.Row="3" Background="#2c3e50">
+            <my:MessageTemplate Text="This is demo text for our item, welcome to our site. Have a good day"
+                                DateProvided="05/04/2017"
+                                Sender="Radha"
+                                IsSender="True" />
+
+            <my:MessageTemplate Text="This is demo text for our item, welcome to our site. Have a good day"
+                                DateProvided="05/04/2017"
+                                Sender="Radha"
+                                IsSender="False" />
+        </StackPanel>
+        
+    </Grid>
+</Page>
